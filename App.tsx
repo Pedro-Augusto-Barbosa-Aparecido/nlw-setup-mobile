@@ -9,6 +9,8 @@ import {
 import { Loading } from './src/components/loading';
 import { Routes } from './src/routes';
 
+import "./src/lib/dayjs"
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular, 
