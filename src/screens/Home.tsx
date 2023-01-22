@@ -2,13 +2,13 @@ import { Text, View, ScrollView, Alert } from "react-native"
 
 import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
 
-import { useNavigation } from "@react-navigation/native"
+import { useFocusEffect, useNavigation } from "@react-navigation/native"
 
 import { Header } from "../components/Header"
 import { DAY_SIZE, HabitDay } from "../components/HabitDay"
 
 import { api } from "../lib/axios";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Loading } from "../components/loading";
 import dayjs from "dayjs";
 
@@ -44,9 +44,9 @@ export function Home() {
   }
 
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchData()
-  }, [])
+  }, []))
 
   if (loading) {
     return <Loading />
